@@ -1,0 +1,1981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dandan.mybatis.TOrderMapper">
+  <resultMap id="BaseResultMap" type="com.dandan.pojo.TOrder">
+    <result column="id" jdbcType="CHAR" property="id" />
+    <result column="order_number" jdbcType="CHAR" property="orderNumber" />
+    <result column="partner_order_number" jdbcType="CHAR" property="partnerOrderNumber" />
+    <result column="user_expect_date" jdbcType="DATE" property="userExpectDate" />
+    <result column="user_expect_time_solt_id" jdbcType="INTEGER" property="userExpectTimeSoltId" />
+    <result column="final_agree_date" jdbcType="DATE" property="finalAgreeDate" />
+    <result column="final_agree_time_solt_id" jdbcType="INTEGER" property="finalAgreeTimeSoltId" />
+    <result column="artisan_name" jdbcType="VARCHAR" property="artisanName" />
+    <result column="artisan_mobile" jdbcType="CHAR" property="artisanMobile" />
+    <result column="artisan_address" jdbcType="VARCHAR" property="artisanAddress" />
+    <result column="merchant_name" jdbcType="CHAR" property="merchantName" />
+    <result column="merchant_contact_name" jdbcType="CHAR" property="merchantContactName" />
+    <result column="merchant_contact_phone_number" jdbcType="VARCHAR" property="merchantContactPhoneNumber" />
+    <result column="is_authentication_merchant_order" jdbcType="CHAR" property="isAuthenticationMerchantOrder" />
+    <result column="merchant_authentication_name" jdbcType="CHAR" property="merchantAuthenticationName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="grabing_time" jdbcType="TIMESTAMP" property="grabingTime" />
+    <result column="confirm_address_time" jdbcType="TIMESTAMP" property="confirmAddressTime" />
+    <result column="deliver_time" jdbcType="TIMESTAMP" property="deliverTime" />
+    <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+    <result column="assigning_time" jdbcType="TIMESTAMP" property="assigningTime" />
+    <result column="sign_time" jdbcType="TIMESTAMP" property="signTime" />
+    <result column="serving_completed_time" jdbcType="TIMESTAMP" property="servingCompletedTime" />
+    <result column="customer_acceptance_time" jdbcType="TIMESTAMP" property="customerAcceptanceTime" />
+    <result column="completed_time" jdbcType="TIMESTAMP" property="completedTime" />
+    <result column="sign_longitude" jdbcType="DECIMAL" property="signLongitude" />
+    <result column="sign_latitude" jdbcType="DECIMAL" property="signLatitude" />
+    <result column="is_grabbed" jdbcType="CHAR" property="isGrabbed" />
+    <result column="customer_prepay_amount" jdbcType="DECIMAL" property="customerPrepayAmount" />
+    <result column="grab_order_timestamp" jdbcType="BIGINT" property="grabOrderTimestamp" />
+    <result column="artisan_income_amount" jdbcType="DECIMAL" property="artisanIncomeAmount" />
+    <result column="artisan_reward_punishment_total_amount" jdbcType="DECIMAL" property="artisanRewardPunishmentTotalAmount" />
+    <result column="artisan_taking_product_reward_amount" jdbcType="DECIMAL" property="artisanTakingProductRewardAmount" />
+    <result column="artisan_agent_charge_reward_amount" jdbcType="DECIMAL" property="artisanAgentChargeRewardAmount" />
+    <result column="artisan_service_amount" jdbcType="DECIMAL" property="artisanServiceAmount" />
+    <result column="artisan_distance_payment_amount" jdbcType="DECIMAL" property="artisanDistancePaymentAmount" />
+    <result column="artisan_amendment_amount" jdbcType="DECIMAL" property="artisanAmendmentAmount" />
+    <result column="artisan_addition_amount" jdbcType="DECIMAL" property="artisanAdditionAmount" />
+    <result column="artisan_addition_amount_note" jdbcType="VARCHAR" property="artisanAdditionAmountNote" />
+    <result column="artisan_extra_charge_addition_amount" jdbcType="DECIMAL" property="artisanExtraChargeAdditionAmount" />
+    <result column="artisan_service_total_score" jdbcType="INTEGER" property="artisanServiceTotalScore" />
+    <result column="merchant_total_payment_amount" jdbcType="DECIMAL" property="merchantTotalPaymentAmount" />
+    <result column="merchant_agent_charge_payment_amount" jdbcType="DECIMAL" property="merchantAgentChargePaymentAmount" />
+    <result column="merchant_service_discount_amount" jdbcType="DECIMAL" property="merchantServiceDiscountAmount" />
+    <result column="merchant_service_payment_amount" jdbcType="DECIMAL" property="merchantServicePaymentAmount" />
+    <result column="merchant_distance_payment_amount" jdbcType="DECIMAL" property="merchantDistancePaymentAmount" />
+    <result column="merchant_addition_payment_amount" jdbcType="DECIMAL" property="merchantAdditionPaymentAmount" />
+    <result column="merchant_addition_payment_amount_note" jdbcType="VARCHAR" property="merchantAdditionPaymentAmountNote" />
+    <result column="merchant_addition_payment_url1" jdbcType="VARCHAR" property="merchantAdditionPaymentUrl1" />
+    <result column="merchant_addition_payment_url2" jdbcType="VARCHAR" property="merchantAdditionPaymentUrl2" />
+    <result column="merchant_addition_payment_url3" jdbcType="VARCHAR" property="merchantAdditionPaymentUrl3" />
+    <result column="merchant_agreement_url" jdbcType="VARCHAR" property="merchantAgreementUrl" />
+    <result column="order_estimate_max_amount" jdbcType="DECIMAL" property="orderEstimateMaxAmount" />
+    <result column="order_income_amount" jdbcType="DECIMAL" property="orderIncomeAmount" />
+    <result column="quality_assurance_days" jdbcType="INTEGER" property="qualityAssuranceDays" />
+    <result column="is_taking_product" jdbcType="CHAR" property="isTakingProduct" />
+    <result column="is_taking_goods" jdbcType="CHAR" property="isTakingGoods" />
+    <result column="is_customer_payment" jdbcType="CHAR" property="isCustomerPayment" />
+    <result column="customer_payment_success" jdbcType="CHAR" property="customerPaymentSuccess" />
+    <result column="customer_addition_payment_amount" jdbcType="DECIMAL" property="customerAdditionPaymentAmount" />
+    <result column="customer_addition_payment_amount_note" jdbcType="VARCHAR" property="customerAdditionPaymentAmountNote" />
+    <result column="customer_total_payment_amount" jdbcType="DECIMAL" property="customerTotalPaymentAmount" />
+    <result column="is_agent_charge" jdbcType="CHAR" property="isAgentCharge" />
+    <result column="agent_charge_amount" jdbcType="DECIMAL" property="agentChargeAmount" />
+    <result column="delivery_order_number" jdbcType="CHAR" property="deliveryOrderNumber" />
+    <result column="delivery_receipt_url" jdbcType="VARCHAR" property="deliveryReceiptUrl" />
+    <result column="delivery_company_id" jdbcType="INTEGER" property="deliveryCompanyId" />
+    <result column="merchant_id" jdbcType="CHAR" property="merchantId" />
+    <result column="dealer_full_name" jdbcType="CHAR" property="dealerFullName" />
+    <result column="artisan_leader_id" jdbcType="CHAR" property="artisanLeaderId" />
+    <result column="artisan_id" jdbcType="CHAR" property="artisanId" />
+    <result column="status_id" jdbcType="INTEGER" property="statusId" />
+    <result column="status_begin_time" jdbcType="TIMESTAMP" property="statusBeginTime" />
+    <result column="is_warning" jdbcType="CHAR" property="isWarning" />
+    <result column="pending_process_time" jdbcType="TIMESTAMP" property="pendingProcessTime" />
+    <result column="waiting_grab_processer_id" jdbcType="CHAR" property="waitingGrabProcesserId" />
+    <result column="waiting_grab_processer_name" jdbcType="VARCHAR" property="waitingGrabProcesserName" />
+    <result column="processer_id" jdbcType="CHAR" property="processerId" />
+    <result column="processer_name" jdbcType="VARCHAR" property="processerName" />
+    <result column="markup_number" jdbcType="INTEGER" property="markupNumber" />
+    <result column="markup_interval_minutes" jdbcType="INTEGER" property="markupIntervalMinutes" />
+    <result column="markup_amount" jdbcType="DECIMAL" property="markupAmount" />
+    <result column="created_by_id" jdbcType="CHAR" property="createdById" />
+    <result column="created_account_type_id" jdbcType="INTEGER" property="createdAccountTypeId" />
+    <result column="visibility_id" jdbcType="INTEGER" property="visibilityId" />
+    <result column="process_step_code" jdbcType="CHAR" property="processStepCode" />
+    <result column="per_process_step_process_count" jdbcType="INTEGER" property="perProcessStepProcessCount" />
+    <result column="is_customer_reminder" jdbcType="CHAR" property="isCustomerReminder" />
+    <result column="customer_reminder_time" jdbcType="TIMESTAMP" property="customerReminderTime" />
+    <result column="is_conform_visit_condition" jdbcType="CHAR" property="isConformVisitCondition" />
+    <result column="conform_visit_condition_time" jdbcType="TIMESTAMP" property="conformVisitConditionTime" />
+    <result column="channel" jdbcType="CHAR" property="channel" />
+    <result column="channel_order_number" jdbcType="CHAR" property="channelOrderNumber" />
+    <result column="customer_channel_account" jdbcType="VARCHAR" property="customerChannelAccount" />
+    <result column="final_agree_time_start" jdbcType="TIME" property="finalAgreeTimeStart" />
+    <result column="final_agree_time_end" jdbcType="TIME" property="finalAgreeTimeEnd" />
+    <result column="is_checkout_offline" jdbcType="CHAR" property="isCheckoutOffline" />
+    <result column="reimbursement_artisan_id" jdbcType="CHAR" property="reimbursementArtisanId" />
+    <result column="serve_artisan_phone_number" jdbcType="VARCHAR" property="serveArtisanPhoneNumber" />
+    <result column="is_city_partner_created" jdbcType="CHAR" property="isCityPartnerCreated" />
+    <result column="merchant_type" jdbcType="CHAR" property="merchantType" />
+    <result column="service_provider_id" jdbcType="VARCHAR" property="serviceProviderId" />
+    <result column="service_provider_name" jdbcType="VARCHAR" property="serviceProviderName" />
+    <result column="is_default_service_provider" jdbcType="CHAR" property="isDefaultServiceProvider" />
+    <result column="is_red_packet_used" jdbcType="CHAR" property="isRedPacketUsed" />
+    <result column="is_remote" jdbcType="CHAR" property="isRemote" />
+    <result column="order_tag_str" jdbcType="VARCHAR" property="orderTagStr" />
+    <result column="inner_tag_str" jdbcType="VARCHAR" property="innerTagStr" />
+    <result column="is_team_order" jdbcType="CHAR" property="isTeamOrder" />
+    <result column="is_timeout_order" jdbcType="CHAR" property="isTimeoutOrder" />
+    <result column="is_problem_order" jdbcType="CHAR" property="isProblemOrder" />
+    <result column="is_complaints_order" jdbcType="CHAR" property="isComplaintsOrder" />
+    <result column="is_artisan_extra_charge" jdbcType="CHAR" property="isArtisanExtraCharge" />
+    <result column="is_praise_award_order" jdbcType="CHAR" property="isPraiseAwardOrder" />
+    <result column="customer_praise_award_amount" jdbcType="DECIMAL" property="customerPraiseAwardAmount" />
+    <result column="artisan_praise_award_amount" jdbcType="DECIMAL" property="artisanPraiseAwardAmount" />
+    <result column="customer_praise_award_amount_config" jdbcType="DECIMAL" property="customerPraiseAwardAmountConfig" />
+    <result column="artisan_praise_award_amount_config" jdbcType="DECIMAL" property="artisanPraiseAwardAmountConfig" />
+    <result column="is_extend_warranty_order" jdbcType="CHAR" property="isExtendWarrantyOrder" />
+    <result column="artisan_recommend_award_amount" jdbcType="DECIMAL" property="artisanRecommendAwardAmount" />
+    <result column="artisan_recommend_award_amount_config" jdbcType="DECIMAL" property="artisanRecommendAwardAmountConfig" />
+    <result column="extend_warranty_is_paid" jdbcType="CHAR" property="extendWarrantyIsPaid" />
+    <result column="two_days_extend_warranty_push" jdbcType="CHAR" property="twoDaysExtendWarrantyPush" />
+    <result column="two_days_extend_warranty_push_time" jdbcType="TIMESTAMP" property="twoDaysExtendWarrantyPushTime" />
+    <result column="spare_parts_clearing_type_code" jdbcType="CHAR" property="sparePartsClearingTypeCode" />
+    <result column="unconfirmed_serving_time" jdbcType="VARCHAR" property="unconfirmedServingTime" />
+    <result column="is_product_receiving" jdbcType="VARCHAR" property="isProductReceiving" />
+    <result column="is_system_sing_product_receiving" jdbcType="CHAR" property="isSystemSingProductReceiving" />
+    <result column="is_need_serving" jdbcType="VARCHAR" property="isNeedServing" />
+    <result column="send_order_sms_sign" jdbcType="CHAR" property="sendOrderSmsSign" />
+    <result column="is_check_sign_photo" jdbcType="CHAR" property="isCheckSignPhoto" />
+    <result column="note_picture" jdbcType="VARCHAR" property="notePicture" />
+    <result column="is_proprietary_merchant_created" jdbcType="CHAR" property="isProprietaryMerchantCreated" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.dandan.pojo.TOrderWithBLOBs">
+    <result column="note" jdbcType="LONGVARCHAR" property="note" />
+    <result column="employee_note" jdbcType="LONGVARCHAR" property="employeeNote" />
+    <result column="inner_label_note" jdbcType="LONGVARCHAR" property="innerLabelNote" />
+    <result column="artisan_env_check_note" jdbcType="LONGVARCHAR" property="artisanEnvCheckNote" />
+    <result column="artisan_acceptance_note" jdbcType="LONGVARCHAR" property="artisanAcceptanceNote" />
+    <result column="artisan_acceptance_json" jdbcType="LONGVARCHAR" property="artisanAcceptanceJson" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, order_number, partner_order_number, user_expect_date, user_expect_time_solt_id, 
+    final_agree_date, final_agree_time_solt_id, artisan_name, artisan_mobile, artisan_address, 
+    merchant_name, merchant_contact_name, merchant_contact_phone_number, is_authentication_merchant_order, 
+    merchant_authentication_name, create_time, update_time, publish_time, grabing_time, 
+    confirm_address_time, deliver_time, receive_time, assigning_time, sign_time, serving_completed_time, 
+    customer_acceptance_time, completed_time, sign_longitude, sign_latitude, is_grabbed, 
+    customer_prepay_amount, grab_order_timestamp, artisan_income_amount, artisan_reward_punishment_total_amount, 
+    artisan_taking_product_reward_amount, artisan_agent_charge_reward_amount, artisan_service_amount, 
+    artisan_distance_payment_amount, artisan_amendment_amount, artisan_addition_amount, 
+    artisan_addition_amount_note, artisan_extra_charge_addition_amount, artisan_service_total_score, 
+    merchant_total_payment_amount, merchant_agent_charge_payment_amount, merchant_service_discount_amount, 
+    merchant_service_payment_amount, merchant_distance_payment_amount, merchant_addition_payment_amount, 
+    merchant_addition_payment_amount_note, merchant_addition_payment_url1, merchant_addition_payment_url2, 
+    merchant_addition_payment_url3, merchant_agreement_url, order_estimate_max_amount, 
+    order_income_amount, quality_assurance_days, is_taking_product, is_taking_goods, 
+    is_customer_payment, customer_payment_success, customer_addition_payment_amount, 
+    customer_addition_payment_amount_note, customer_total_payment_amount, is_agent_charge, 
+    agent_charge_amount, delivery_order_number, delivery_receipt_url, delivery_company_id, 
+    merchant_id, dealer_full_name, artisan_leader_id, artisan_id, status_id, status_begin_time, 
+    is_warning, pending_process_time, waiting_grab_processer_id, waiting_grab_processer_name, 
+    processer_id, processer_name, markup_number, markup_interval_minutes, markup_amount, 
+    created_by_id, created_account_type_id, visibility_id, process_step_code, per_process_step_process_count, 
+    is_customer_reminder, customer_reminder_time, is_conform_visit_condition, conform_visit_condition_time, 
+    channel, channel_order_number, customer_channel_account, final_agree_time_start, 
+    final_agree_time_end, is_checkout_offline, reimbursement_artisan_id, serve_artisan_phone_number, 
+    is_city_partner_created, merchant_type, service_provider_id, service_provider_name, 
+    is_default_service_provider, is_red_packet_used, is_remote, order_tag_str, inner_tag_str, 
+    is_team_order, is_timeout_order, is_problem_order, is_complaints_order, is_artisan_extra_charge, 
+    is_praise_award_order, customer_praise_award_amount, artisan_praise_award_amount, 
+    customer_praise_award_amount_config, artisan_praise_award_amount_config, is_extend_warranty_order, 
+    artisan_recommend_award_amount, artisan_recommend_award_amount_config, extend_warranty_is_paid, 
+    two_days_extend_warranty_push, two_days_extend_warranty_push_time, spare_parts_clearing_type_code, 
+    unconfirmed_serving_time, is_product_receiving, is_system_sing_product_receiving, 
+    is_need_serving, send_order_sms_sign, is_check_sign_photo, note_picture, is_proprietary_merchant_created
+  </sql>
+  <sql id="Blob_Column_List">
+    note, employee_note, inner_label_note, artisan_env_check_note, artisan_acceptance_note, 
+    artisan_acceptance_json
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.dandan.pojo.TOrderExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.dandan.pojo.TOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.dandan.pojo.TOrderExample">
+    delete from t_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dandan.pojo.TOrderWithBLOBs">
+    insert into t_order (id, order_number, partner_order_number, 
+      user_expect_date, user_expect_time_solt_id, final_agree_date, 
+      final_agree_time_solt_id, artisan_name, artisan_mobile, 
+      artisan_address, merchant_name, merchant_contact_name, 
+      merchant_contact_phone_number, is_authentication_merchant_order, 
+      merchant_authentication_name, create_time, 
+      update_time, publish_time, grabing_time, 
+      confirm_address_time, deliver_time, receive_time, 
+      assigning_time, sign_time, serving_completed_time, 
+      customer_acceptance_time, completed_time, 
+      sign_longitude, sign_latitude, is_grabbed, 
+      customer_prepay_amount, grab_order_timestamp, 
+      artisan_income_amount, artisan_reward_punishment_total_amount, 
+      artisan_taking_product_reward_amount, artisan_agent_charge_reward_amount, 
+      artisan_service_amount, artisan_distance_payment_amount, 
+      artisan_amendment_amount, artisan_addition_amount, 
+      artisan_addition_amount_note, artisan_extra_charge_addition_amount, 
+      artisan_service_total_score, merchant_total_payment_amount, 
+      merchant_agent_charge_payment_amount, merchant_service_discount_amount, 
+      merchant_service_payment_amount, merchant_distance_payment_amount, 
+      merchant_addition_payment_amount, merchant_addition_payment_amount_note, 
+      merchant_addition_payment_url1, merchant_addition_payment_url2, 
+      merchant_addition_payment_url3, merchant_agreement_url, 
+      order_estimate_max_amount, order_income_amount, 
+      quality_assurance_days, is_taking_product, is_taking_goods, 
+      is_customer_payment, customer_payment_success, customer_addition_payment_amount, 
+      customer_addition_payment_amount_note, customer_total_payment_amount, 
+      is_agent_charge, agent_charge_amount, delivery_order_number, 
+      delivery_receipt_url, delivery_company_id, 
+      merchant_id, dealer_full_name, artisan_leader_id, 
+      artisan_id, status_id, status_begin_time, 
+      is_warning, pending_process_time, waiting_grab_processer_id, 
+      waiting_grab_processer_name, processer_id, processer_name, 
+      markup_number, markup_interval_minutes, markup_amount, 
+      created_by_id, created_account_type_id, visibility_id, 
+      process_step_code, per_process_step_process_count, 
+      is_customer_reminder, customer_reminder_time, 
+      is_conform_visit_condition, conform_visit_condition_time, 
+      channel, channel_order_number, customer_channel_account, 
+      final_agree_time_start, final_agree_time_end, is_checkout_offline, 
+      reimbursement_artisan_id, serve_artisan_phone_number, 
+      is_city_partner_created, merchant_type, service_provider_id, 
+      service_provider_name, is_default_service_provider, 
+      is_red_packet_used, is_remote, order_tag_str, 
+      inner_tag_str, is_team_order, is_timeout_order, 
+      is_problem_order, is_complaints_order, is_artisan_extra_charge, 
+      is_praise_award_order, customer_praise_award_amount, 
+      artisan_praise_award_amount, customer_praise_award_amount_config, 
+      artisan_praise_award_amount_config, is_extend_warranty_order, 
+      artisan_recommend_award_amount, artisan_recommend_award_amount_config, 
+      extend_warranty_is_paid, two_days_extend_warranty_push, 
+      two_days_extend_warranty_push_time, spare_parts_clearing_type_code, 
+      unconfirmed_serving_time, is_product_receiving, 
+      is_system_sing_product_receiving, is_need_serving, 
+      send_order_sms_sign, is_check_sign_photo, note_picture, 
+      is_proprietary_merchant_created, note, employee_note, 
+      inner_label_note, artisan_env_check_note, 
+      artisan_acceptance_note, artisan_acceptance_json
+      )
+    values (#{id,jdbcType=CHAR}, #{orderNumber,jdbcType=CHAR}, #{partnerOrderNumber,jdbcType=CHAR}, 
+      #{userExpectDate,jdbcType=DATE}, #{userExpectTimeSoltId,jdbcType=INTEGER}, #{finalAgreeDate,jdbcType=DATE}, 
+      #{finalAgreeTimeSoltId,jdbcType=INTEGER}, #{artisanName,jdbcType=VARCHAR}, #{artisanMobile,jdbcType=CHAR}, 
+      #{artisanAddress,jdbcType=VARCHAR}, #{merchantName,jdbcType=CHAR}, #{merchantContactName,jdbcType=CHAR}, 
+      #{merchantContactPhoneNumber,jdbcType=VARCHAR}, #{isAuthenticationMerchantOrder,jdbcType=CHAR}, 
+      #{merchantAuthenticationName,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, #{grabingTime,jdbcType=TIMESTAMP}, 
+      #{confirmAddressTime,jdbcType=TIMESTAMP}, #{deliverTime,jdbcType=TIMESTAMP}, #{receiveTime,jdbcType=TIMESTAMP}, 
+      #{assigningTime,jdbcType=TIMESTAMP}, #{signTime,jdbcType=TIMESTAMP}, #{servingCompletedTime,jdbcType=TIMESTAMP}, 
+      #{customerAcceptanceTime,jdbcType=TIMESTAMP}, #{completedTime,jdbcType=TIMESTAMP}, 
+      #{signLongitude,jdbcType=DECIMAL}, #{signLatitude,jdbcType=DECIMAL}, #{isGrabbed,jdbcType=CHAR}, 
+      #{customerPrepayAmount,jdbcType=DECIMAL}, #{grabOrderTimestamp,jdbcType=BIGINT}, 
+      #{artisanIncomeAmount,jdbcType=DECIMAL}, #{artisanRewardPunishmentTotalAmount,jdbcType=DECIMAL}, 
+      #{artisanTakingProductRewardAmount,jdbcType=DECIMAL}, #{artisanAgentChargeRewardAmount,jdbcType=DECIMAL}, 
+      #{artisanServiceAmount,jdbcType=DECIMAL}, #{artisanDistancePaymentAmount,jdbcType=DECIMAL}, 
+      #{artisanAmendmentAmount,jdbcType=DECIMAL}, #{artisanAdditionAmount,jdbcType=DECIMAL}, 
+      #{artisanAdditionAmountNote,jdbcType=VARCHAR}, #{artisanExtraChargeAdditionAmount,jdbcType=DECIMAL}, 
+      #{artisanServiceTotalScore,jdbcType=INTEGER}, #{merchantTotalPaymentAmount,jdbcType=DECIMAL}, 
+      #{merchantAgentChargePaymentAmount,jdbcType=DECIMAL}, #{merchantServiceDiscountAmount,jdbcType=DECIMAL}, 
+      #{merchantServicePaymentAmount,jdbcType=DECIMAL}, #{merchantDistancePaymentAmount,jdbcType=DECIMAL}, 
+      #{merchantAdditionPaymentAmount,jdbcType=DECIMAL}, #{merchantAdditionPaymentAmountNote,jdbcType=VARCHAR}, 
+      #{merchantAdditionPaymentUrl1,jdbcType=VARCHAR}, #{merchantAdditionPaymentUrl2,jdbcType=VARCHAR}, 
+      #{merchantAdditionPaymentUrl3,jdbcType=VARCHAR}, #{merchantAgreementUrl,jdbcType=VARCHAR}, 
+      #{orderEstimateMaxAmount,jdbcType=DECIMAL}, #{orderIncomeAmount,jdbcType=DECIMAL}, 
+      #{qualityAssuranceDays,jdbcType=INTEGER}, #{isTakingProduct,jdbcType=CHAR}, #{isTakingGoods,jdbcType=CHAR}, 
+      #{isCustomerPayment,jdbcType=CHAR}, #{customerPaymentSuccess,jdbcType=CHAR}, #{customerAdditionPaymentAmount,jdbcType=DECIMAL}, 
+      #{customerAdditionPaymentAmountNote,jdbcType=VARCHAR}, #{customerTotalPaymentAmount,jdbcType=DECIMAL}, 
+      #{isAgentCharge,jdbcType=CHAR}, #{agentChargeAmount,jdbcType=DECIMAL}, #{deliveryOrderNumber,jdbcType=CHAR}, 
+      #{deliveryReceiptUrl,jdbcType=VARCHAR}, #{deliveryCompanyId,jdbcType=INTEGER}, 
+      #{merchantId,jdbcType=CHAR}, #{dealerFullName,jdbcType=CHAR}, #{artisanLeaderId,jdbcType=CHAR}, 
+      #{artisanId,jdbcType=CHAR}, #{statusId,jdbcType=INTEGER}, #{statusBeginTime,jdbcType=TIMESTAMP}, 
+      #{isWarning,jdbcType=CHAR}, #{pendingProcessTime,jdbcType=TIMESTAMP}, #{waitingGrabProcesserId,jdbcType=CHAR}, 
+      #{waitingGrabProcesserName,jdbcType=VARCHAR}, #{processerId,jdbcType=CHAR}, #{processerName,jdbcType=VARCHAR}, 
+      #{markupNumber,jdbcType=INTEGER}, #{markupIntervalMinutes,jdbcType=INTEGER}, #{markupAmount,jdbcType=DECIMAL}, 
+      #{createdById,jdbcType=CHAR}, #{createdAccountTypeId,jdbcType=INTEGER}, #{visibilityId,jdbcType=INTEGER}, 
+      #{processStepCode,jdbcType=CHAR}, #{perProcessStepProcessCount,jdbcType=INTEGER}, 
+      #{isCustomerReminder,jdbcType=CHAR}, #{customerReminderTime,jdbcType=TIMESTAMP}, 
+      #{isConformVisitCondition,jdbcType=CHAR}, #{conformVisitConditionTime,jdbcType=TIMESTAMP}, 
+      #{channel,jdbcType=CHAR}, #{channelOrderNumber,jdbcType=CHAR}, #{customerChannelAccount,jdbcType=VARCHAR}, 
+      #{finalAgreeTimeStart,jdbcType=TIME}, #{finalAgreeTimeEnd,jdbcType=TIME}, #{isCheckoutOffline,jdbcType=CHAR}, 
+      #{reimbursementArtisanId,jdbcType=CHAR}, #{serveArtisanPhoneNumber,jdbcType=VARCHAR}, 
+      #{isCityPartnerCreated,jdbcType=CHAR}, #{merchantType,jdbcType=CHAR}, #{serviceProviderId,jdbcType=VARCHAR}, 
+      #{serviceProviderName,jdbcType=VARCHAR}, #{isDefaultServiceProvider,jdbcType=CHAR}, 
+      #{isRedPacketUsed,jdbcType=CHAR}, #{isRemote,jdbcType=CHAR}, #{orderTagStr,jdbcType=VARCHAR}, 
+      #{innerTagStr,jdbcType=VARCHAR}, #{isTeamOrder,jdbcType=CHAR}, #{isTimeoutOrder,jdbcType=CHAR}, 
+      #{isProblemOrder,jdbcType=CHAR}, #{isComplaintsOrder,jdbcType=CHAR}, #{isArtisanExtraCharge,jdbcType=CHAR}, 
+      #{isPraiseAwardOrder,jdbcType=CHAR}, #{customerPraiseAwardAmount,jdbcType=DECIMAL}, 
+      #{artisanPraiseAwardAmount,jdbcType=DECIMAL}, #{customerPraiseAwardAmountConfig,jdbcType=DECIMAL}, 
+      #{artisanPraiseAwardAmountConfig,jdbcType=DECIMAL}, #{isExtendWarrantyOrder,jdbcType=CHAR}, 
+      #{artisanRecommendAwardAmount,jdbcType=DECIMAL}, #{artisanRecommendAwardAmountConfig,jdbcType=DECIMAL}, 
+      #{extendWarrantyIsPaid,jdbcType=CHAR}, #{twoDaysExtendWarrantyPush,jdbcType=CHAR}, 
+      #{twoDaysExtendWarrantyPushTime,jdbcType=TIMESTAMP}, #{sparePartsClearingTypeCode,jdbcType=CHAR}, 
+      #{unconfirmedServingTime,jdbcType=VARCHAR}, #{isProductReceiving,jdbcType=VARCHAR}, 
+      #{isSystemSingProductReceiving,jdbcType=CHAR}, #{isNeedServing,jdbcType=VARCHAR}, 
+      #{sendOrderSmsSign,jdbcType=CHAR}, #{isCheckSignPhoto,jdbcType=CHAR}, #{notePicture,jdbcType=VARCHAR}, 
+      #{isProprietaryMerchantCreated,jdbcType=CHAR}, #{note,jdbcType=LONGVARCHAR}, #{employeeNote,jdbcType=LONGVARCHAR}, 
+      #{innerLabelNote,jdbcType=LONGVARCHAR}, #{artisanEnvCheckNote,jdbcType=LONGVARCHAR}, 
+      #{artisanAcceptanceNote,jdbcType=LONGVARCHAR}, #{artisanAcceptanceJson,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dandan.pojo.TOrderWithBLOBs">
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="partnerOrderNumber != null">
+        partner_order_number,
+      </if>
+      <if test="userExpectDate != null">
+        user_expect_date,
+      </if>
+      <if test="userExpectTimeSoltId != null">
+        user_expect_time_solt_id,
+      </if>
+      <if test="finalAgreeDate != null">
+        final_agree_date,
+      </if>
+      <if test="finalAgreeTimeSoltId != null">
+        final_agree_time_solt_id,
+      </if>
+      <if test="artisanName != null">
+        artisan_name,
+      </if>
+      <if test="artisanMobile != null">
+        artisan_mobile,
+      </if>
+      <if test="artisanAddress != null">
+        artisan_address,
+      </if>
+      <if test="merchantName != null">
+        merchant_name,
+      </if>
+      <if test="merchantContactName != null">
+        merchant_contact_name,
+      </if>
+      <if test="merchantContactPhoneNumber != null">
+        merchant_contact_phone_number,
+      </if>
+      <if test="isAuthenticationMerchantOrder != null">
+        is_authentication_merchant_order,
+      </if>
+      <if test="merchantAuthenticationName != null">
+        merchant_authentication_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="grabingTime != null">
+        grabing_time,
+      </if>
+      <if test="confirmAddressTime != null">
+        confirm_address_time,
+      </if>
+      <if test="deliverTime != null">
+        deliver_time,
+      </if>
+      <if test="receiveTime != null">
+        receive_time,
+      </if>
+      <if test="assigningTime != null">
+        assigning_time,
+      </if>
+      <if test="signTime != null">
+        sign_time,
+      </if>
+      <if test="servingCompletedTime != null">
+        serving_completed_time,
+      </if>
+      <if test="customerAcceptanceTime != null">
+        customer_acceptance_time,
+      </if>
+      <if test="completedTime != null">
+        completed_time,
+      </if>
+      <if test="signLongitude != null">
+        sign_longitude,
+      </if>
+      <if test="signLatitude != null">
+        sign_latitude,
+      </if>
+      <if test="isGrabbed != null">
+        is_grabbed,
+      </if>
+      <if test="customerPrepayAmount != null">
+        customer_prepay_amount,
+      </if>
+      <if test="grabOrderTimestamp != null">
+        grab_order_timestamp,
+      </if>
+      <if test="artisanIncomeAmount != null">
+        artisan_income_amount,
+      </if>
+      <if test="artisanRewardPunishmentTotalAmount != null">
+        artisan_reward_punishment_total_amount,
+      </if>
+      <if test="artisanTakingProductRewardAmount != null">
+        artisan_taking_product_reward_amount,
+      </if>
+      <if test="artisanAgentChargeRewardAmount != null">
+        artisan_agent_charge_reward_amount,
+      </if>
+      <if test="artisanServiceAmount != null">
+        artisan_service_amount,
+      </if>
+      <if test="artisanDistancePaymentAmount != null">
+        artisan_distance_payment_amount,
+      </if>
+      <if test="artisanAmendmentAmount != null">
+        artisan_amendment_amount,
+      </if>
+      <if test="artisanAdditionAmount != null">
+        artisan_addition_amount,
+      </if>
+      <if test="artisanAdditionAmountNote != null">
+        artisan_addition_amount_note,
+      </if>
+      <if test="artisanExtraChargeAdditionAmount != null">
+        artisan_extra_charge_addition_amount,
+      </if>
+      <if test="artisanServiceTotalScore != null">
+        artisan_service_total_score,
+      </if>
+      <if test="merchantTotalPaymentAmount != null">
+        merchant_total_payment_amount,
+      </if>
+      <if test="merchantAgentChargePaymentAmount != null">
+        merchant_agent_charge_payment_amount,
+      </if>
+      <if test="merchantServiceDiscountAmount != null">
+        merchant_service_discount_amount,
+      </if>
+      <if test="merchantServicePaymentAmount != null">
+        merchant_service_payment_amount,
+      </if>
+      <if test="merchantDistancePaymentAmount != null">
+        merchant_distance_payment_amount,
+      </if>
+      <if test="merchantAdditionPaymentAmount != null">
+        merchant_addition_payment_amount,
+      </if>
+      <if test="merchantAdditionPaymentAmountNote != null">
+        merchant_addition_payment_amount_note,
+      </if>
+      <if test="merchantAdditionPaymentUrl1 != null">
+        merchant_addition_payment_url1,
+      </if>
+      <if test="merchantAdditionPaymentUrl2 != null">
+        merchant_addition_payment_url2,
+      </if>
+      <if test="merchantAdditionPaymentUrl3 != null">
+        merchant_addition_payment_url3,
+      </if>
+      <if test="merchantAgreementUrl != null">
+        merchant_agreement_url,
+      </if>
+      <if test="orderEstimateMaxAmount != null">
+        order_estimate_max_amount,
+      </if>
+      <if test="orderIncomeAmount != null">
+        order_income_amount,
+      </if>
+      <if test="qualityAssuranceDays != null">
+        quality_assurance_days,
+      </if>
+      <if test="isTakingProduct != null">
+        is_taking_product,
+      </if>
+      <if test="isTakingGoods != null">
+        is_taking_goods,
+      </if>
+      <if test="isCustomerPayment != null">
+        is_customer_payment,
+      </if>
+      <if test="customerPaymentSuccess != null">
+        customer_payment_success,
+      </if>
+      <if test="customerAdditionPaymentAmount != null">
+        customer_addition_payment_amount,
+      </if>
+      <if test="customerAdditionPaymentAmountNote != null">
+        customer_addition_payment_amount_note,
+      </if>
+      <if test="customerTotalPaymentAmount != null">
+        customer_total_payment_amount,
+      </if>
+      <if test="isAgentCharge != null">
+        is_agent_charge,
+      </if>
+      <if test="agentChargeAmount != null">
+        agent_charge_amount,
+      </if>
+      <if test="deliveryOrderNumber != null">
+        delivery_order_number,
+      </if>
+      <if test="deliveryReceiptUrl != null">
+        delivery_receipt_url,
+      </if>
+      <if test="deliveryCompanyId != null">
+        delivery_company_id,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+      <if test="dealerFullName != null">
+        dealer_full_name,
+      </if>
+      <if test="artisanLeaderId != null">
+        artisan_leader_id,
+      </if>
+      <if test="artisanId != null">
+        artisan_id,
+      </if>
+      <if test="statusId != null">
+        status_id,
+      </if>
+      <if test="statusBeginTime != null">
+        status_begin_time,
+      </if>
+      <if test="isWarning != null">
+        is_warning,
+      </if>
+      <if test="pendingProcessTime != null">
+        pending_process_time,
+      </if>
+      <if test="waitingGrabProcesserId != null">
+        waiting_grab_processer_id,
+      </if>
+      <if test="waitingGrabProcesserName != null">
+        waiting_grab_processer_name,
+      </if>
+      <if test="processerId != null">
+        processer_id,
+      </if>
+      <if test="processerName != null">
+        processer_name,
+      </if>
+      <if test="markupNumber != null">
+        markup_number,
+      </if>
+      <if test="markupIntervalMinutes != null">
+        markup_interval_minutes,
+      </if>
+      <if test="markupAmount != null">
+        markup_amount,
+      </if>
+      <if test="createdById != null">
+        created_by_id,
+      </if>
+      <if test="createdAccountTypeId != null">
+        created_account_type_id,
+      </if>
+      <if test="visibilityId != null">
+        visibility_id,
+      </if>
+      <if test="processStepCode != null">
+        process_step_code,
+      </if>
+      <if test="perProcessStepProcessCount != null">
+        per_process_step_process_count,
+      </if>
+      <if test="isCustomerReminder != null">
+        is_customer_reminder,
+      </if>
+      <if test="customerReminderTime != null">
+        customer_reminder_time,
+      </if>
+      <if test="isConformVisitCondition != null">
+        is_conform_visit_condition,
+      </if>
+      <if test="conformVisitConditionTime != null">
+        conform_visit_condition_time,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="channelOrderNumber != null">
+        channel_order_number,
+      </if>
+      <if test="customerChannelAccount != null">
+        customer_channel_account,
+      </if>
+      <if test="finalAgreeTimeStart != null">
+        final_agree_time_start,
+      </if>
+      <if test="finalAgreeTimeEnd != null">
+        final_agree_time_end,
+      </if>
+      <if test="isCheckoutOffline != null">
+        is_checkout_offline,
+      </if>
+      <if test="reimbursementArtisanId != null">
+        reimbursement_artisan_id,
+      </if>
+      <if test="serveArtisanPhoneNumber != null">
+        serve_artisan_phone_number,
+      </if>
+      <if test="isCityPartnerCreated != null">
+        is_city_partner_created,
+      </if>
+      <if test="merchantType != null">
+        merchant_type,
+      </if>
+      <if test="serviceProviderId != null">
+        service_provider_id,
+      </if>
+      <if test="serviceProviderName != null">
+        service_provider_name,
+      </if>
+      <if test="isDefaultServiceProvider != null">
+        is_default_service_provider,
+      </if>
+      <if test="isRedPacketUsed != null">
+        is_red_packet_used,
+      </if>
+      <if test="isRemote != null">
+        is_remote,
+      </if>
+      <if test="orderTagStr != null">
+        order_tag_str,
+      </if>
+      <if test="innerTagStr != null">
+        inner_tag_str,
+      </if>
+      <if test="isTeamOrder != null">
+        is_team_order,
+      </if>
+      <if test="isTimeoutOrder != null">
+        is_timeout_order,
+      </if>
+      <if test="isProblemOrder != null">
+        is_problem_order,
+      </if>
+      <if test="isComplaintsOrder != null">
+        is_complaints_order,
+      </if>
+      <if test="isArtisanExtraCharge != null">
+        is_artisan_extra_charge,
+      </if>
+      <if test="isPraiseAwardOrder != null">
+        is_praise_award_order,
+      </if>
+      <if test="customerPraiseAwardAmount != null">
+        customer_praise_award_amount,
+      </if>
+      <if test="artisanPraiseAwardAmount != null">
+        artisan_praise_award_amount,
+      </if>
+      <if test="customerPraiseAwardAmountConfig != null">
+        customer_praise_award_amount_config,
+      </if>
+      <if test="artisanPraiseAwardAmountConfig != null">
+        artisan_praise_award_amount_config,
+      </if>
+      <if test="isExtendWarrantyOrder != null">
+        is_extend_warranty_order,
+      </if>
+      <if test="artisanRecommendAwardAmount != null">
+        artisan_recommend_award_amount,
+      </if>
+      <if test="artisanRecommendAwardAmountConfig != null">
+        artisan_recommend_award_amount_config,
+      </if>
+      <if test="extendWarrantyIsPaid != null">
+        extend_warranty_is_paid,
+      </if>
+      <if test="twoDaysExtendWarrantyPush != null">
+        two_days_extend_warranty_push,
+      </if>
+      <if test="twoDaysExtendWarrantyPushTime != null">
+        two_days_extend_warranty_push_time,
+      </if>
+      <if test="sparePartsClearingTypeCode != null">
+        spare_parts_clearing_type_code,
+      </if>
+      <if test="unconfirmedServingTime != null">
+        unconfirmed_serving_time,
+      </if>
+      <if test="isProductReceiving != null">
+        is_product_receiving,
+      </if>
+      <if test="isSystemSingProductReceiving != null">
+        is_system_sing_product_receiving,
+      </if>
+      <if test="isNeedServing != null">
+        is_need_serving,
+      </if>
+      <if test="sendOrderSmsSign != null">
+        send_order_sms_sign,
+      </if>
+      <if test="isCheckSignPhoto != null">
+        is_check_sign_photo,
+      </if>
+      <if test="notePicture != null">
+        note_picture,
+      </if>
+      <if test="isProprietaryMerchantCreated != null">
+        is_proprietary_merchant_created,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="employeeNote != null">
+        employee_note,
+      </if>
+      <if test="innerLabelNote != null">
+        inner_label_note,
+      </if>
+      <if test="artisanEnvCheckNote != null">
+        artisan_env_check_note,
+      </if>
+      <if test="artisanAcceptanceNote != null">
+        artisan_acceptance_note,
+      </if>
+      <if test="artisanAcceptanceJson != null">
+        artisan_acceptance_json,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=CHAR},
+      </if>
+      <if test="partnerOrderNumber != null">
+        #{partnerOrderNumber,jdbcType=CHAR},
+      </if>
+      <if test="userExpectDate != null">
+        #{userExpectDate,jdbcType=DATE},
+      </if>
+      <if test="userExpectTimeSoltId != null">
+        #{userExpectTimeSoltId,jdbcType=INTEGER},
+      </if>
+      <if test="finalAgreeDate != null">
+        #{finalAgreeDate,jdbcType=DATE},
+      </if>
+      <if test="finalAgreeTimeSoltId != null">
+        #{finalAgreeTimeSoltId,jdbcType=INTEGER},
+      </if>
+      <if test="artisanName != null">
+        #{artisanName,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanMobile != null">
+        #{artisanMobile,jdbcType=CHAR},
+      </if>
+      <if test="artisanAddress != null">
+        #{artisanAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=CHAR},
+      </if>
+      <if test="merchantContactName != null">
+        #{merchantContactName,jdbcType=CHAR},
+      </if>
+      <if test="merchantContactPhoneNumber != null">
+        #{merchantContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuthenticationMerchantOrder != null">
+        #{isAuthenticationMerchantOrder,jdbcType=CHAR},
+      </if>
+      <if test="merchantAuthenticationName != null">
+        #{merchantAuthenticationName,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grabingTime != null">
+        #{grabingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmAddressTime != null">
+        #{confirmAddressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliverTime != null">
+        #{deliverTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiveTime != null">
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assigningTime != null">
+        #{assigningTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signTime != null">
+        #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servingCompletedTime != null">
+        #{servingCompletedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerAcceptanceTime != null">
+        #{customerAcceptanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completedTime != null">
+        #{completedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signLongitude != null">
+        #{signLongitude,jdbcType=DECIMAL},
+      </if>
+      <if test="signLatitude != null">
+        #{signLatitude,jdbcType=DECIMAL},
+      </if>
+      <if test="isGrabbed != null">
+        #{isGrabbed,jdbcType=CHAR},
+      </if>
+      <if test="customerPrepayAmount != null">
+        #{customerPrepayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="grabOrderTimestamp != null">
+        #{grabOrderTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="artisanIncomeAmount != null">
+        #{artisanIncomeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanRewardPunishmentTotalAmount != null">
+        #{artisanRewardPunishmentTotalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanTakingProductRewardAmount != null">
+        #{artisanTakingProductRewardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanAgentChargeRewardAmount != null">
+        #{artisanAgentChargeRewardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanServiceAmount != null">
+        #{artisanServiceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanDistancePaymentAmount != null">
+        #{artisanDistancePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanAmendmentAmount != null">
+        #{artisanAmendmentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanAdditionAmount != null">
+        #{artisanAdditionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanAdditionAmountNote != null">
+        #{artisanAdditionAmountNote,jdbcType=VARCHAR},
+      </if>
+      <if test="artisanExtraChargeAdditionAmount != null">
+        #{artisanExtraChargeAdditionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanServiceTotalScore != null">
+        #{artisanServiceTotalScore,jdbcType=INTEGER},
+      </if>
+      <if test="merchantTotalPaymentAmount != null">
+        #{merchantTotalPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantAgentChargePaymentAmount != null">
+        #{merchantAgentChargePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantServiceDiscountAmount != null">
+        #{merchantServiceDiscountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantServicePaymentAmount != null">
+        #{merchantServicePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantDistancePaymentAmount != null">
+        #{merchantDistancePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantAdditionPaymentAmount != null">
+        #{merchantAdditionPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantAdditionPaymentAmountNote != null">
+        #{merchantAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantAdditionPaymentUrl1 != null">
+        #{merchantAdditionPaymentUrl1,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantAdditionPaymentUrl2 != null">
+        #{merchantAdditionPaymentUrl2,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantAdditionPaymentUrl3 != null">
+        #{merchantAdditionPaymentUrl3,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantAgreementUrl != null">
+        #{merchantAgreementUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="orderEstimateMaxAmount != null">
+        #{orderEstimateMaxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderIncomeAmount != null">
+        #{orderIncomeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityAssuranceDays != null">
+        #{qualityAssuranceDays,jdbcType=INTEGER},
+      </if>
+      <if test="isTakingProduct != null">
+        #{isTakingProduct,jdbcType=CHAR},
+      </if>
+      <if test="isTakingGoods != null">
+        #{isTakingGoods,jdbcType=CHAR},
+      </if>
+      <if test="isCustomerPayment != null">
+        #{isCustomerPayment,jdbcType=CHAR},
+      </if>
+      <if test="customerPaymentSuccess != null">
+        #{customerPaymentSuccess,jdbcType=CHAR},
+      </if>
+      <if test="customerAdditionPaymentAmount != null">
+        #{customerAdditionPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="customerAdditionPaymentAmountNote != null">
+        #{customerAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      </if>
+      <if test="customerTotalPaymentAmount != null">
+        #{customerTotalPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="isAgentCharge != null">
+        #{isAgentCharge,jdbcType=CHAR},
+      </if>
+      <if test="agentChargeAmount != null">
+        #{agentChargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="deliveryOrderNumber != null">
+        #{deliveryOrderNumber,jdbcType=CHAR},
+      </if>
+      <if test="deliveryReceiptUrl != null">
+        #{deliveryReceiptUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryCompanyId != null">
+        #{deliveryCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=CHAR},
+      </if>
+      <if test="dealerFullName != null">
+        #{dealerFullName,jdbcType=CHAR},
+      </if>
+      <if test="artisanLeaderId != null">
+        #{artisanLeaderId,jdbcType=CHAR},
+      </if>
+      <if test="artisanId != null">
+        #{artisanId,jdbcType=CHAR},
+      </if>
+      <if test="statusId != null">
+        #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="statusBeginTime != null">
+        #{statusBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isWarning != null">
+        #{isWarning,jdbcType=CHAR},
+      </if>
+      <if test="pendingProcessTime != null">
+        #{pendingProcessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="waitingGrabProcesserId != null">
+        #{waitingGrabProcesserId,jdbcType=CHAR},
+      </if>
+      <if test="waitingGrabProcesserName != null">
+        #{waitingGrabProcesserName,jdbcType=VARCHAR},
+      </if>
+      <if test="processerId != null">
+        #{processerId,jdbcType=CHAR},
+      </if>
+      <if test="processerName != null">
+        #{processerName,jdbcType=VARCHAR},
+      </if>
+      <if test="markupNumber != null">
+        #{markupNumber,jdbcType=INTEGER},
+      </if>
+      <if test="markupIntervalMinutes != null">
+        #{markupIntervalMinutes,jdbcType=INTEGER},
+      </if>
+      <if test="markupAmount != null">
+        #{markupAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="createdById != null">
+        #{createdById,jdbcType=CHAR},
+      </if>
+      <if test="createdAccountTypeId != null">
+        #{createdAccountTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="visibilityId != null">
+        #{visibilityId,jdbcType=INTEGER},
+      </if>
+      <if test="processStepCode != null">
+        #{processStepCode,jdbcType=CHAR},
+      </if>
+      <if test="perProcessStepProcessCount != null">
+        #{perProcessStepProcessCount,jdbcType=INTEGER},
+      </if>
+      <if test="isCustomerReminder != null">
+        #{isCustomerReminder,jdbcType=CHAR},
+      </if>
+      <if test="customerReminderTime != null">
+        #{customerReminderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isConformVisitCondition != null">
+        #{isConformVisitCondition,jdbcType=CHAR},
+      </if>
+      <if test="conformVisitConditionTime != null">
+        #{conformVisitConditionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=CHAR},
+      </if>
+      <if test="channelOrderNumber != null">
+        #{channelOrderNumber,jdbcType=CHAR},
+      </if>
+      <if test="customerChannelAccount != null">
+        #{customerChannelAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="finalAgreeTimeStart != null">
+        #{finalAgreeTimeStart,jdbcType=TIME},
+      </if>
+      <if test="finalAgreeTimeEnd != null">
+        #{finalAgreeTimeEnd,jdbcType=TIME},
+      </if>
+      <if test="isCheckoutOffline != null">
+        #{isCheckoutOffline,jdbcType=CHAR},
+      </if>
+      <if test="reimbursementArtisanId != null">
+        #{reimbursementArtisanId,jdbcType=CHAR},
+      </if>
+      <if test="serveArtisanPhoneNumber != null">
+        #{serveArtisanPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isCityPartnerCreated != null">
+        #{isCityPartnerCreated,jdbcType=CHAR},
+      </if>
+      <if test="merchantType != null">
+        #{merchantType,jdbcType=CHAR},
+      </if>
+      <if test="serviceProviderId != null">
+        #{serviceProviderId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProviderName != null">
+        #{serviceProviderName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefaultServiceProvider != null">
+        #{isDefaultServiceProvider,jdbcType=CHAR},
+      </if>
+      <if test="isRedPacketUsed != null">
+        #{isRedPacketUsed,jdbcType=CHAR},
+      </if>
+      <if test="isRemote != null">
+        #{isRemote,jdbcType=CHAR},
+      </if>
+      <if test="orderTagStr != null">
+        #{orderTagStr,jdbcType=VARCHAR},
+      </if>
+      <if test="innerTagStr != null">
+        #{innerTagStr,jdbcType=VARCHAR},
+      </if>
+      <if test="isTeamOrder != null">
+        #{isTeamOrder,jdbcType=CHAR},
+      </if>
+      <if test="isTimeoutOrder != null">
+        #{isTimeoutOrder,jdbcType=CHAR},
+      </if>
+      <if test="isProblemOrder != null">
+        #{isProblemOrder,jdbcType=CHAR},
+      </if>
+      <if test="isComplaintsOrder != null">
+        #{isComplaintsOrder,jdbcType=CHAR},
+      </if>
+      <if test="isArtisanExtraCharge != null">
+        #{isArtisanExtraCharge,jdbcType=CHAR},
+      </if>
+      <if test="isPraiseAwardOrder != null">
+        #{isPraiseAwardOrder,jdbcType=CHAR},
+      </if>
+      <if test="customerPraiseAwardAmount != null">
+        #{customerPraiseAwardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanPraiseAwardAmount != null">
+        #{artisanPraiseAwardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="customerPraiseAwardAmountConfig != null">
+        #{customerPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanPraiseAwardAmountConfig != null">
+        #{artisanPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="isExtendWarrantyOrder != null">
+        #{isExtendWarrantyOrder,jdbcType=CHAR},
+      </if>
+      <if test="artisanRecommendAwardAmount != null">
+        #{artisanRecommendAwardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="artisanRecommendAwardAmountConfig != null">
+        #{artisanRecommendAwardAmountConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="extendWarrantyIsPaid != null">
+        #{extendWarrantyIsPaid,jdbcType=CHAR},
+      </if>
+      <if test="twoDaysExtendWarrantyPush != null">
+        #{twoDaysExtendWarrantyPush,jdbcType=CHAR},
+      </if>
+      <if test="twoDaysExtendWarrantyPushTime != null">
+        #{twoDaysExtendWarrantyPushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sparePartsClearingTypeCode != null">
+        #{sparePartsClearingTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="unconfirmedServingTime != null">
+        #{unconfirmedServingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isProductReceiving != null">
+        #{isProductReceiving,jdbcType=VARCHAR},
+      </if>
+      <if test="isSystemSingProductReceiving != null">
+        #{isSystemSingProductReceiving,jdbcType=CHAR},
+      </if>
+      <if test="isNeedServing != null">
+        #{isNeedServing,jdbcType=VARCHAR},
+      </if>
+      <if test="sendOrderSmsSign != null">
+        #{sendOrderSmsSign,jdbcType=CHAR},
+      </if>
+      <if test="isCheckSignPhoto != null">
+        #{isCheckSignPhoto,jdbcType=CHAR},
+      </if>
+      <if test="notePicture != null">
+        #{notePicture,jdbcType=VARCHAR},
+      </if>
+      <if test="isProprietaryMerchantCreated != null">
+        #{isProprietaryMerchantCreated,jdbcType=CHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="employeeNote != null">
+        #{employeeNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="innerLabelNote != null">
+        #{innerLabelNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="artisanEnvCheckNote != null">
+        #{artisanEnvCheckNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="artisanAcceptanceNote != null">
+        #{artisanAcceptanceNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="artisanAcceptanceJson != null">
+        #{artisanAcceptanceJson,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dandan.pojo.TOrderExample" resultType="java.lang.Long">
+    select count(*) from t_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_order
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.orderNumber != null">
+        order_number = #{record.orderNumber,jdbcType=CHAR},
+      </if>
+      <if test="record.partnerOrderNumber != null">
+        partner_order_number = #{record.partnerOrderNumber,jdbcType=CHAR},
+      </if>
+      <if test="record.userExpectDate != null">
+        user_expect_date = #{record.userExpectDate,jdbcType=DATE},
+      </if>
+      <if test="record.userExpectTimeSoltId != null">
+        user_expect_time_solt_id = #{record.userExpectTimeSoltId,jdbcType=INTEGER},
+      </if>
+      <if test="record.finalAgreeDate != null">
+        final_agree_date = #{record.finalAgreeDate,jdbcType=DATE},
+      </if>
+      <if test="record.finalAgreeTimeSoltId != null">
+        final_agree_time_solt_id = #{record.finalAgreeTimeSoltId,jdbcType=INTEGER},
+      </if>
+      <if test="record.artisanName != null">
+        artisan_name = #{record.artisanName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.artisanMobile != null">
+        artisan_mobile = #{record.artisanMobile,jdbcType=CHAR},
+      </if>
+      <if test="record.artisanAddress != null">
+        artisan_address = #{record.artisanAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantName != null">
+        merchant_name = #{record.merchantName,jdbcType=CHAR},
+      </if>
+      <if test="record.merchantContactName != null">
+        merchant_contact_name = #{record.merchantContactName,jdbcType=CHAR},
+      </if>
+      <if test="record.merchantContactPhoneNumber != null">
+        merchant_contact_phone_number = #{record.merchantContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isAuthenticationMerchantOrder != null">
+        is_authentication_merchant_order = #{record.isAuthenticationMerchantOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.merchantAuthenticationName != null">
+        merchant_authentication_name = #{record.merchantAuthenticationName,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.publishTime != null">
+        publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.grabingTime != null">
+        grabing_time = #{record.grabingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.confirmAddressTime != null">
+        confirm_address_time = #{record.confirmAddressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deliverTime != null">
+        deliver_time = #{record.deliverTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.receiveTime != null">
+        receive_time = #{record.receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.assigningTime != null">
+        assigning_time = #{record.assigningTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signTime != null">
+        sign_time = #{record.signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.servingCompletedTime != null">
+        serving_completed_time = #{record.servingCompletedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.customerAcceptanceTime != null">
+        customer_acceptance_time = #{record.customerAcceptanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.completedTime != null">
+        completed_time = #{record.completedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signLongitude != null">
+        sign_longitude = #{record.signLongitude,jdbcType=DECIMAL},
+      </if>
+      <if test="record.signLatitude != null">
+        sign_latitude = #{record.signLatitude,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isGrabbed != null">
+        is_grabbed = #{record.isGrabbed,jdbcType=CHAR},
+      </if>
+      <if test="record.customerPrepayAmount != null">
+        customer_prepay_amount = #{record.customerPrepayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.grabOrderTimestamp != null">
+        grab_order_timestamp = #{record.grabOrderTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="record.artisanIncomeAmount != null">
+        artisan_income_amount = #{record.artisanIncomeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanRewardPunishmentTotalAmount != null">
+        artisan_reward_punishment_total_amount = #{record.artisanRewardPunishmentTotalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanTakingProductRewardAmount != null">
+        artisan_taking_product_reward_amount = #{record.artisanTakingProductRewardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanAgentChargeRewardAmount != null">
+        artisan_agent_charge_reward_amount = #{record.artisanAgentChargeRewardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanServiceAmount != null">
+        artisan_service_amount = #{record.artisanServiceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanDistancePaymentAmount != null">
+        artisan_distance_payment_amount = #{record.artisanDistancePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanAmendmentAmount != null">
+        artisan_amendment_amount = #{record.artisanAmendmentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanAdditionAmount != null">
+        artisan_addition_amount = #{record.artisanAdditionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanAdditionAmountNote != null">
+        artisan_addition_amount_note = #{record.artisanAdditionAmountNote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.artisanExtraChargeAdditionAmount != null">
+        artisan_extra_charge_addition_amount = #{record.artisanExtraChargeAdditionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanServiceTotalScore != null">
+        artisan_service_total_score = #{record.artisanServiceTotalScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.merchantTotalPaymentAmount != null">
+        merchant_total_payment_amount = #{record.merchantTotalPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merchantAgentChargePaymentAmount != null">
+        merchant_agent_charge_payment_amount = #{record.merchantAgentChargePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merchantServiceDiscountAmount != null">
+        merchant_service_discount_amount = #{record.merchantServiceDiscountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merchantServicePaymentAmount != null">
+        merchant_service_payment_amount = #{record.merchantServicePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merchantDistancePaymentAmount != null">
+        merchant_distance_payment_amount = #{record.merchantDistancePaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merchantAdditionPaymentAmount != null">
+        merchant_addition_payment_amount = #{record.merchantAdditionPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merchantAdditionPaymentAmountNote != null">
+        merchant_addition_payment_amount_note = #{record.merchantAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantAdditionPaymentUrl1 != null">
+        merchant_addition_payment_url1 = #{record.merchantAdditionPaymentUrl1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantAdditionPaymentUrl2 != null">
+        merchant_addition_payment_url2 = #{record.merchantAdditionPaymentUrl2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantAdditionPaymentUrl3 != null">
+        merchant_addition_payment_url3 = #{record.merchantAdditionPaymentUrl3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantAgreementUrl != null">
+        merchant_agreement_url = #{record.merchantAgreementUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderEstimateMaxAmount != null">
+        order_estimate_max_amount = #{record.orderEstimateMaxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orderIncomeAmount != null">
+        order_income_amount = #{record.orderIncomeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.qualityAssuranceDays != null">
+        quality_assurance_days = #{record.qualityAssuranceDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.isTakingProduct != null">
+        is_taking_product = #{record.isTakingProduct,jdbcType=CHAR},
+      </if>
+      <if test="record.isTakingGoods != null">
+        is_taking_goods = #{record.isTakingGoods,jdbcType=CHAR},
+      </if>
+      <if test="record.isCustomerPayment != null">
+        is_customer_payment = #{record.isCustomerPayment,jdbcType=CHAR},
+      </if>
+      <if test="record.customerPaymentSuccess != null">
+        customer_payment_success = #{record.customerPaymentSuccess,jdbcType=CHAR},
+      </if>
+      <if test="record.customerAdditionPaymentAmount != null">
+        customer_addition_payment_amount = #{record.customerAdditionPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.customerAdditionPaymentAmountNote != null">
+        customer_addition_payment_amount_note = #{record.customerAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerTotalPaymentAmount != null">
+        customer_total_payment_amount = #{record.customerTotalPaymentAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isAgentCharge != null">
+        is_agent_charge = #{record.isAgentCharge,jdbcType=CHAR},
+      </if>
+      <if test="record.agentChargeAmount != null">
+        agent_charge_amount = #{record.agentChargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.deliveryOrderNumber != null">
+        delivery_order_number = #{record.deliveryOrderNumber,jdbcType=CHAR},
+      </if>
+      <if test="record.deliveryReceiptUrl != null">
+        delivery_receipt_url = #{record.deliveryReceiptUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliveryCompanyId != null">
+        delivery_company_id = #{record.deliveryCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.merchantId != null">
+        merchant_id = #{record.merchantId,jdbcType=CHAR},
+      </if>
+      <if test="record.dealerFullName != null">
+        dealer_full_name = #{record.dealerFullName,jdbcType=CHAR},
+      </if>
+      <if test="record.artisanLeaderId != null">
+        artisan_leader_id = #{record.artisanLeaderId,jdbcType=CHAR},
+      </if>
+      <if test="record.artisanId != null">
+        artisan_id = #{record.artisanId,jdbcType=CHAR},
+      </if>
+      <if test="record.statusId != null">
+        status_id = #{record.statusId,jdbcType=INTEGER},
+      </if>
+      <if test="record.statusBeginTime != null">
+        status_begin_time = #{record.statusBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isWarning != null">
+        is_warning = #{record.isWarning,jdbcType=CHAR},
+      </if>
+      <if test="record.pendingProcessTime != null">
+        pending_process_time = #{record.pendingProcessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.waitingGrabProcesserId != null">
+        waiting_grab_processer_id = #{record.waitingGrabProcesserId,jdbcType=CHAR},
+      </if>
+      <if test="record.waitingGrabProcesserName != null">
+        waiting_grab_processer_name = #{record.waitingGrabProcesserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.processerId != null">
+        processer_id = #{record.processerId,jdbcType=CHAR},
+      </if>
+      <if test="record.processerName != null">
+        processer_name = #{record.processerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.markupNumber != null">
+        markup_number = #{record.markupNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.markupIntervalMinutes != null">
+        markup_interval_minutes = #{record.markupIntervalMinutes,jdbcType=INTEGER},
+      </if>
+      <if test="record.markupAmount != null">
+        markup_amount = #{record.markupAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createdById != null">
+        created_by_id = #{record.createdById,jdbcType=CHAR},
+      </if>
+      <if test="record.createdAccountTypeId != null">
+        created_account_type_id = #{record.createdAccountTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.visibilityId != null">
+        visibility_id = #{record.visibilityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.processStepCode != null">
+        process_step_code = #{record.processStepCode,jdbcType=CHAR},
+      </if>
+      <if test="record.perProcessStepProcessCount != null">
+        per_process_step_process_count = #{record.perProcessStepProcessCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.isCustomerReminder != null">
+        is_customer_reminder = #{record.isCustomerReminder,jdbcType=CHAR},
+      </if>
+      <if test="record.customerReminderTime != null">
+        customer_reminder_time = #{record.customerReminderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isConformVisitCondition != null">
+        is_conform_visit_condition = #{record.isConformVisitCondition,jdbcType=CHAR},
+      </if>
+      <if test="record.conformVisitConditionTime != null">
+        conform_visit_condition_time = #{record.conformVisitConditionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.channel != null">
+        channel = #{record.channel,jdbcType=CHAR},
+      </if>
+      <if test="record.channelOrderNumber != null">
+        channel_order_number = #{record.channelOrderNumber,jdbcType=CHAR},
+      </if>
+      <if test="record.customerChannelAccount != null">
+        customer_channel_account = #{record.customerChannelAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finalAgreeTimeStart != null">
+        final_agree_time_start = #{record.finalAgreeTimeStart,jdbcType=TIME},
+      </if>
+      <if test="record.finalAgreeTimeEnd != null">
+        final_agree_time_end = #{record.finalAgreeTimeEnd,jdbcType=TIME},
+      </if>
+      <if test="record.isCheckoutOffline != null">
+        is_checkout_offline = #{record.isCheckoutOffline,jdbcType=CHAR},
+      </if>
+      <if test="record.reimbursementArtisanId != null">
+        reimbursement_artisan_id = #{record.reimbursementArtisanId,jdbcType=CHAR},
+      </if>
+      <if test="record.serveArtisanPhoneNumber != null">
+        serve_artisan_phone_number = #{record.serveArtisanPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isCityPartnerCreated != null">
+        is_city_partner_created = #{record.isCityPartnerCreated,jdbcType=CHAR},
+      </if>
+      <if test="record.merchantType != null">
+        merchant_type = #{record.merchantType,jdbcType=CHAR},
+      </if>
+      <if test="record.serviceProviderId != null">
+        service_provider_id = #{record.serviceProviderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceProviderName != null">
+        service_provider_name = #{record.serviceProviderName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDefaultServiceProvider != null">
+        is_default_service_provider = #{record.isDefaultServiceProvider,jdbcType=CHAR},
+      </if>
+      <if test="record.isRedPacketUsed != null">
+        is_red_packet_used = #{record.isRedPacketUsed,jdbcType=CHAR},
+      </if>
+      <if test="record.isRemote != null">
+        is_remote = #{record.isRemote,jdbcType=CHAR},
+      </if>
+      <if test="record.orderTagStr != null">
+        order_tag_str = #{record.orderTagStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.innerTagStr != null">
+        inner_tag_str = #{record.innerTagStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isTeamOrder != null">
+        is_team_order = #{record.isTeamOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.isTimeoutOrder != null">
+        is_timeout_order = #{record.isTimeoutOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.isProblemOrder != null">
+        is_problem_order = #{record.isProblemOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.isComplaintsOrder != null">
+        is_complaints_order = #{record.isComplaintsOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.isArtisanExtraCharge != null">
+        is_artisan_extra_charge = #{record.isArtisanExtraCharge,jdbcType=CHAR},
+      </if>
+      <if test="record.isPraiseAwardOrder != null">
+        is_praise_award_order = #{record.isPraiseAwardOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.customerPraiseAwardAmount != null">
+        customer_praise_award_amount = #{record.customerPraiseAwardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanPraiseAwardAmount != null">
+        artisan_praise_award_amount = #{record.artisanPraiseAwardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.customerPraiseAwardAmountConfig != null">
+        customer_praise_award_amount_config = #{record.customerPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanPraiseAwardAmountConfig != null">
+        artisan_praise_award_amount_config = #{record.artisanPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isExtendWarrantyOrder != null">
+        is_extend_warranty_order = #{record.isExtendWarrantyOrder,jdbcType=CHAR},
+      </if>
+      <if test="record.artisanRecommendAwardAmount != null">
+        artisan_recommend_award_amount = #{record.artisanRecommendAwardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.artisanRecommendAwardAmountConfig != null">
+        artisan_recommend_award_amount_config = #{record.artisanRecommendAwardAmountConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="record.extendWarrantyIsPaid != null">
+        extend_warranty_is_paid = #{record.extendWarrantyIsPaid,jdbcType=CHAR},
+      </if>
+      <if test="record.twoDaysExtendWarrantyPush != null">
+        two_days_extend_warranty_push = #{record.twoDaysExtendWarrantyPush,jdbcType=CHAR},
+      </if>
+      <if test="record.twoDaysExtendWarrantyPushTime != null">
+        two_days_extend_warranty_push_time = #{record.twoDaysExtendWarrantyPushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sparePartsClearingTypeCode != null">
+        spare_parts_clearing_type_code = #{record.sparePartsClearingTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="record.unconfirmedServingTime != null">
+        unconfirmed_serving_time = #{record.unconfirmedServingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isProductReceiving != null">
+        is_product_receiving = #{record.isProductReceiving,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSystemSingProductReceiving != null">
+        is_system_sing_product_receiving = #{record.isSystemSingProductReceiving,jdbcType=CHAR},
+      </if>
+      <if test="record.isNeedServing != null">
+        is_need_serving = #{record.isNeedServing,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendOrderSmsSign != null">
+        send_order_sms_sign = #{record.sendOrderSmsSign,jdbcType=CHAR},
+      </if>
+      <if test="record.isCheckSignPhoto != null">
+        is_check_sign_photo = #{record.isCheckSignPhoto,jdbcType=CHAR},
+      </if>
+      <if test="record.notePicture != null">
+        note_picture = #{record.notePicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isProprietaryMerchantCreated != null">
+        is_proprietary_merchant_created = #{record.isProprietaryMerchantCreated,jdbcType=CHAR},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.employeeNote != null">
+        employee_note = #{record.employeeNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.innerLabelNote != null">
+        inner_label_note = #{record.innerLabelNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.artisanEnvCheckNote != null">
+        artisan_env_check_note = #{record.artisanEnvCheckNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.artisanAcceptanceNote != null">
+        artisan_acceptance_note = #{record.artisanAcceptanceNote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.artisanAcceptanceJson != null">
+        artisan_acceptance_json = #{record.artisanAcceptanceJson,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_order
+    set id = #{record.id,jdbcType=CHAR},
+      order_number = #{record.orderNumber,jdbcType=CHAR},
+      partner_order_number = #{record.partnerOrderNumber,jdbcType=CHAR},
+      user_expect_date = #{record.userExpectDate,jdbcType=DATE},
+      user_expect_time_solt_id = #{record.userExpectTimeSoltId,jdbcType=INTEGER},
+      final_agree_date = #{record.finalAgreeDate,jdbcType=DATE},
+      final_agree_time_solt_id = #{record.finalAgreeTimeSoltId,jdbcType=INTEGER},
+      artisan_name = #{record.artisanName,jdbcType=VARCHAR},
+      artisan_mobile = #{record.artisanMobile,jdbcType=CHAR},
+      artisan_address = #{record.artisanAddress,jdbcType=VARCHAR},
+      merchant_name = #{record.merchantName,jdbcType=CHAR},
+      merchant_contact_name = #{record.merchantContactName,jdbcType=CHAR},
+      merchant_contact_phone_number = #{record.merchantContactPhoneNumber,jdbcType=VARCHAR},
+      is_authentication_merchant_order = #{record.isAuthenticationMerchantOrder,jdbcType=CHAR},
+      merchant_authentication_name = #{record.merchantAuthenticationName,jdbcType=CHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      grabing_time = #{record.grabingTime,jdbcType=TIMESTAMP},
+      confirm_address_time = #{record.confirmAddressTime,jdbcType=TIMESTAMP},
+      deliver_time = #{record.deliverTime,jdbcType=TIMESTAMP},
+      receive_time = #{record.receiveTime,jdbcType=TIMESTAMP},
+      assigning_time = #{record.assigningTime,jdbcType=TIMESTAMP},
+      sign_time = #{record.signTime,jdbcType=TIMESTAMP},
+      serving_completed_time = #{record.servingCompletedTime,jdbcType=TIMESTAMP},
+      customer_acceptance_time = #{record.customerAcceptanceTime,jdbcType=TIMESTAMP},
+      completed_time = #{record.completedTime,jdbcType=TIMESTAMP},
+      sign_longitude = #{record.signLongitude,jdbcType=DECIMAL},
+      sign_latitude = #{record.signLatitude,jdbcType=DECIMAL},
+      is_grabbed = #{record.isGrabbed,jdbcType=CHAR},
+      customer_prepay_amount = #{record.customerPrepayAmount,jdbcType=DECIMAL},
+      grab_order_timestamp = #{record.grabOrderTimestamp,jdbcType=BIGINT},
+      artisan_income_amount = #{record.artisanIncomeAmount,jdbcType=DECIMAL},
+      artisan_reward_punishment_total_amount = #{record.artisanRewardPunishmentTotalAmount,jdbcType=DECIMAL},
+      artisan_taking_product_reward_amount = #{record.artisanTakingProductRewardAmount,jdbcType=DECIMAL},
+      artisan_agent_charge_reward_amount = #{record.artisanAgentChargeRewardAmount,jdbcType=DECIMAL},
+      artisan_service_amount = #{record.artisanServiceAmount,jdbcType=DECIMAL},
+      artisan_distance_payment_amount = #{record.artisanDistancePaymentAmount,jdbcType=DECIMAL},
+      artisan_amendment_amount = #{record.artisanAmendmentAmount,jdbcType=DECIMAL},
+      artisan_addition_amount = #{record.artisanAdditionAmount,jdbcType=DECIMAL},
+      artisan_addition_amount_note = #{record.artisanAdditionAmountNote,jdbcType=VARCHAR},
+      artisan_extra_charge_addition_amount = #{record.artisanExtraChargeAdditionAmount,jdbcType=DECIMAL},
+      artisan_service_total_score = #{record.artisanServiceTotalScore,jdbcType=INTEGER},
+      merchant_total_payment_amount = #{record.merchantTotalPaymentAmount,jdbcType=DECIMAL},
+      merchant_agent_charge_payment_amount = #{record.merchantAgentChargePaymentAmount,jdbcType=DECIMAL},
+      merchant_service_discount_amount = #{record.merchantServiceDiscountAmount,jdbcType=DECIMAL},
+      merchant_service_payment_amount = #{record.merchantServicePaymentAmount,jdbcType=DECIMAL},
+      merchant_distance_payment_amount = #{record.merchantDistancePaymentAmount,jdbcType=DECIMAL},
+      merchant_addition_payment_amount = #{record.merchantAdditionPaymentAmount,jdbcType=DECIMAL},
+      merchant_addition_payment_amount_note = #{record.merchantAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      merchant_addition_payment_url1 = #{record.merchantAdditionPaymentUrl1,jdbcType=VARCHAR},
+      merchant_addition_payment_url2 = #{record.merchantAdditionPaymentUrl2,jdbcType=VARCHAR},
+      merchant_addition_payment_url3 = #{record.merchantAdditionPaymentUrl3,jdbcType=VARCHAR},
+      merchant_agreement_url = #{record.merchantAgreementUrl,jdbcType=VARCHAR},
+      order_estimate_max_amount = #{record.orderEstimateMaxAmount,jdbcType=DECIMAL},
+      order_income_amount = #{record.orderIncomeAmount,jdbcType=DECIMAL},
+      quality_assurance_days = #{record.qualityAssuranceDays,jdbcType=INTEGER},
+      is_taking_product = #{record.isTakingProduct,jdbcType=CHAR},
+      is_taking_goods = #{record.isTakingGoods,jdbcType=CHAR},
+      is_customer_payment = #{record.isCustomerPayment,jdbcType=CHAR},
+      customer_payment_success = #{record.customerPaymentSuccess,jdbcType=CHAR},
+      customer_addition_payment_amount = #{record.customerAdditionPaymentAmount,jdbcType=DECIMAL},
+      customer_addition_payment_amount_note = #{record.customerAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      customer_total_payment_amount = #{record.customerTotalPaymentAmount,jdbcType=DECIMAL},
+      is_agent_charge = #{record.isAgentCharge,jdbcType=CHAR},
+      agent_charge_amount = #{record.agentChargeAmount,jdbcType=DECIMAL},
+      delivery_order_number = #{record.deliveryOrderNumber,jdbcType=CHAR},
+      delivery_receipt_url = #{record.deliveryReceiptUrl,jdbcType=VARCHAR},
+      delivery_company_id = #{record.deliveryCompanyId,jdbcType=INTEGER},
+      merchant_id = #{record.merchantId,jdbcType=CHAR},
+      dealer_full_name = #{record.dealerFullName,jdbcType=CHAR},
+      artisan_leader_id = #{record.artisanLeaderId,jdbcType=CHAR},
+      artisan_id = #{record.artisanId,jdbcType=CHAR},
+      status_id = #{record.statusId,jdbcType=INTEGER},
+      status_begin_time = #{record.statusBeginTime,jdbcType=TIMESTAMP},
+      is_warning = #{record.isWarning,jdbcType=CHAR},
+      pending_process_time = #{record.pendingProcessTime,jdbcType=TIMESTAMP},
+      waiting_grab_processer_id = #{record.waitingGrabProcesserId,jdbcType=CHAR},
+      waiting_grab_processer_name = #{record.waitingGrabProcesserName,jdbcType=VARCHAR},
+      processer_id = #{record.processerId,jdbcType=CHAR},
+      processer_name = #{record.processerName,jdbcType=VARCHAR},
+      markup_number = #{record.markupNumber,jdbcType=INTEGER},
+      markup_interval_minutes = #{record.markupIntervalMinutes,jdbcType=INTEGER},
+      markup_amount = #{record.markupAmount,jdbcType=DECIMAL},
+      created_by_id = #{record.createdById,jdbcType=CHAR},
+      created_account_type_id = #{record.createdAccountTypeId,jdbcType=INTEGER},
+      visibility_id = #{record.visibilityId,jdbcType=INTEGER},
+      process_step_code = #{record.processStepCode,jdbcType=CHAR},
+      per_process_step_process_count = #{record.perProcessStepProcessCount,jdbcType=INTEGER},
+      is_customer_reminder = #{record.isCustomerReminder,jdbcType=CHAR},
+      customer_reminder_time = #{record.customerReminderTime,jdbcType=TIMESTAMP},
+      is_conform_visit_condition = #{record.isConformVisitCondition,jdbcType=CHAR},
+      conform_visit_condition_time = #{record.conformVisitConditionTime,jdbcType=TIMESTAMP},
+      channel = #{record.channel,jdbcType=CHAR},
+      channel_order_number = #{record.channelOrderNumber,jdbcType=CHAR},
+      customer_channel_account = #{record.customerChannelAccount,jdbcType=VARCHAR},
+      final_agree_time_start = #{record.finalAgreeTimeStart,jdbcType=TIME},
+      final_agree_time_end = #{record.finalAgreeTimeEnd,jdbcType=TIME},
+      is_checkout_offline = #{record.isCheckoutOffline,jdbcType=CHAR},
+      reimbursement_artisan_id = #{record.reimbursementArtisanId,jdbcType=CHAR},
+      serve_artisan_phone_number = #{record.serveArtisanPhoneNumber,jdbcType=VARCHAR},
+      is_city_partner_created = #{record.isCityPartnerCreated,jdbcType=CHAR},
+      merchant_type = #{record.merchantType,jdbcType=CHAR},
+      service_provider_id = #{record.serviceProviderId,jdbcType=VARCHAR},
+      service_provider_name = #{record.serviceProviderName,jdbcType=VARCHAR},
+      is_default_service_provider = #{record.isDefaultServiceProvider,jdbcType=CHAR},
+      is_red_packet_used = #{record.isRedPacketUsed,jdbcType=CHAR},
+      is_remote = #{record.isRemote,jdbcType=CHAR},
+      order_tag_str = #{record.orderTagStr,jdbcType=VARCHAR},
+      inner_tag_str = #{record.innerTagStr,jdbcType=VARCHAR},
+      is_team_order = #{record.isTeamOrder,jdbcType=CHAR},
+      is_timeout_order = #{record.isTimeoutOrder,jdbcType=CHAR},
+      is_problem_order = #{record.isProblemOrder,jdbcType=CHAR},
+      is_complaints_order = #{record.isComplaintsOrder,jdbcType=CHAR},
+      is_artisan_extra_charge = #{record.isArtisanExtraCharge,jdbcType=CHAR},
+      is_praise_award_order = #{record.isPraiseAwardOrder,jdbcType=CHAR},
+      customer_praise_award_amount = #{record.customerPraiseAwardAmount,jdbcType=DECIMAL},
+      artisan_praise_award_amount = #{record.artisanPraiseAwardAmount,jdbcType=DECIMAL},
+      customer_praise_award_amount_config = #{record.customerPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      artisan_praise_award_amount_config = #{record.artisanPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      is_extend_warranty_order = #{record.isExtendWarrantyOrder,jdbcType=CHAR},
+      artisan_recommend_award_amount = #{record.artisanRecommendAwardAmount,jdbcType=DECIMAL},
+      artisan_recommend_award_amount_config = #{record.artisanRecommendAwardAmountConfig,jdbcType=DECIMAL},
+      extend_warranty_is_paid = #{record.extendWarrantyIsPaid,jdbcType=CHAR},
+      two_days_extend_warranty_push = #{record.twoDaysExtendWarrantyPush,jdbcType=CHAR},
+      two_days_extend_warranty_push_time = #{record.twoDaysExtendWarrantyPushTime,jdbcType=TIMESTAMP},
+      spare_parts_clearing_type_code = #{record.sparePartsClearingTypeCode,jdbcType=CHAR},
+      unconfirmed_serving_time = #{record.unconfirmedServingTime,jdbcType=VARCHAR},
+      is_product_receiving = #{record.isProductReceiving,jdbcType=VARCHAR},
+      is_system_sing_product_receiving = #{record.isSystemSingProductReceiving,jdbcType=CHAR},
+      is_need_serving = #{record.isNeedServing,jdbcType=VARCHAR},
+      send_order_sms_sign = #{record.sendOrderSmsSign,jdbcType=CHAR},
+      is_check_sign_photo = #{record.isCheckSignPhoto,jdbcType=CHAR},
+      note_picture = #{record.notePicture,jdbcType=VARCHAR},
+      is_proprietary_merchant_created = #{record.isProprietaryMerchantCreated,jdbcType=CHAR},
+      note = #{record.note,jdbcType=LONGVARCHAR},
+      employee_note = #{record.employeeNote,jdbcType=LONGVARCHAR},
+      inner_label_note = #{record.innerLabelNote,jdbcType=LONGVARCHAR},
+      artisan_env_check_note = #{record.artisanEnvCheckNote,jdbcType=LONGVARCHAR},
+      artisan_acceptance_note = #{record.artisanAcceptanceNote,jdbcType=LONGVARCHAR},
+      artisan_acceptance_json = #{record.artisanAcceptanceJson,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_order
+    set id = #{record.id,jdbcType=CHAR},
+      order_number = #{record.orderNumber,jdbcType=CHAR},
+      partner_order_number = #{record.partnerOrderNumber,jdbcType=CHAR},
+      user_expect_date = #{record.userExpectDate,jdbcType=DATE},
+      user_expect_time_solt_id = #{record.userExpectTimeSoltId,jdbcType=INTEGER},
+      final_agree_date = #{record.finalAgreeDate,jdbcType=DATE},
+      final_agree_time_solt_id = #{record.finalAgreeTimeSoltId,jdbcType=INTEGER},
+      artisan_name = #{record.artisanName,jdbcType=VARCHAR},
+      artisan_mobile = #{record.artisanMobile,jdbcType=CHAR},
+      artisan_address = #{record.artisanAddress,jdbcType=VARCHAR},
+      merchant_name = #{record.merchantName,jdbcType=CHAR},
+      merchant_contact_name = #{record.merchantContactName,jdbcType=CHAR},
+      merchant_contact_phone_number = #{record.merchantContactPhoneNumber,jdbcType=VARCHAR},
+      is_authentication_merchant_order = #{record.isAuthenticationMerchantOrder,jdbcType=CHAR},
+      merchant_authentication_name = #{record.merchantAuthenticationName,jdbcType=CHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      grabing_time = #{record.grabingTime,jdbcType=TIMESTAMP},
+      confirm_address_time = #{record.confirmAddressTime,jdbcType=TIMESTAMP},
+      deliver_time = #{record.deliverTime,jdbcType=TIMESTAMP},
+      receive_time = #{record.receiveTime,jdbcType=TIMESTAMP},
+      assigning_time = #{record.assigningTime,jdbcType=TIMESTAMP},
+      sign_time = #{record.signTime,jdbcType=TIMESTAMP},
+      serving_completed_time = #{record.servingCompletedTime,jdbcType=TIMESTAMP},
+      customer_acceptance_time = #{record.customerAcceptanceTime,jdbcType=TIMESTAMP},
+      completed_time = #{record.completedTime,jdbcType=TIMESTAMP},
+      sign_longitude = #{record.signLongitude,jdbcType=DECIMAL},
+      sign_latitude = #{record.signLatitude,jdbcType=DECIMAL},
+      is_grabbed = #{record.isGrabbed,jdbcType=CHAR},
+      customer_prepay_amount = #{record.customerPrepayAmount,jdbcType=DECIMAL},
+      grab_order_timestamp = #{record.grabOrderTimestamp,jdbcType=BIGINT},
+      artisan_income_amount = #{record.artisanIncomeAmount,jdbcType=DECIMAL},
+      artisan_reward_punishment_total_amount = #{record.artisanRewardPunishmentTotalAmount,jdbcType=DECIMAL},
+      artisan_taking_product_reward_amount = #{record.artisanTakingProductRewardAmount,jdbcType=DECIMAL},
+      artisan_agent_charge_reward_amount = #{record.artisanAgentChargeRewardAmount,jdbcType=DECIMAL},
+      artisan_service_amount = #{record.artisanServiceAmount,jdbcType=DECIMAL},
+      artisan_distance_payment_amount = #{record.artisanDistancePaymentAmount,jdbcType=DECIMAL},
+      artisan_amendment_amount = #{record.artisanAmendmentAmount,jdbcType=DECIMAL},
+      artisan_addition_amount = #{record.artisanAdditionAmount,jdbcType=DECIMAL},
+      artisan_addition_amount_note = #{record.artisanAdditionAmountNote,jdbcType=VARCHAR},
+      artisan_extra_charge_addition_amount = #{record.artisanExtraChargeAdditionAmount,jdbcType=DECIMAL},
+      artisan_service_total_score = #{record.artisanServiceTotalScore,jdbcType=INTEGER},
+      merchant_total_payment_amount = #{record.merchantTotalPaymentAmount,jdbcType=DECIMAL},
+      merchant_agent_charge_payment_amount = #{record.merchantAgentChargePaymentAmount,jdbcType=DECIMAL},
+      merchant_service_discount_amount = #{record.merchantServiceDiscountAmount,jdbcType=DECIMAL},
+      merchant_service_payment_amount = #{record.merchantServicePaymentAmount,jdbcType=DECIMAL},
+      merchant_distance_payment_amount = #{record.merchantDistancePaymentAmount,jdbcType=DECIMAL},
+      merchant_addition_payment_amount = #{record.merchantAdditionPaymentAmount,jdbcType=DECIMAL},
+      merchant_addition_payment_amount_note = #{record.merchantAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      merchant_addition_payment_url1 = #{record.merchantAdditionPaymentUrl1,jdbcType=VARCHAR},
+      merchant_addition_payment_url2 = #{record.merchantAdditionPaymentUrl2,jdbcType=VARCHAR},
+      merchant_addition_payment_url3 = #{record.merchantAdditionPaymentUrl3,jdbcType=VARCHAR},
+      merchant_agreement_url = #{record.merchantAgreementUrl,jdbcType=VARCHAR},
+      order_estimate_max_amount = #{record.orderEstimateMaxAmount,jdbcType=DECIMAL},
+      order_income_amount = #{record.orderIncomeAmount,jdbcType=DECIMAL},
+      quality_assurance_days = #{record.qualityAssuranceDays,jdbcType=INTEGER},
+      is_taking_product = #{record.isTakingProduct,jdbcType=CHAR},
+      is_taking_goods = #{record.isTakingGoods,jdbcType=CHAR},
+      is_customer_payment = #{record.isCustomerPayment,jdbcType=CHAR},
+      customer_payment_success = #{record.customerPaymentSuccess,jdbcType=CHAR},
+      customer_addition_payment_amount = #{record.customerAdditionPaymentAmount,jdbcType=DECIMAL},
+      customer_addition_payment_amount_note = #{record.customerAdditionPaymentAmountNote,jdbcType=VARCHAR},
+      customer_total_payment_amount = #{record.customerTotalPaymentAmount,jdbcType=DECIMAL},
+      is_agent_charge = #{record.isAgentCharge,jdbcType=CHAR},
+      agent_charge_amount = #{record.agentChargeAmount,jdbcType=DECIMAL},
+      delivery_order_number = #{record.deliveryOrderNumber,jdbcType=CHAR},
+      delivery_receipt_url = #{record.deliveryReceiptUrl,jdbcType=VARCHAR},
+      delivery_company_id = #{record.deliveryCompanyId,jdbcType=INTEGER},
+      merchant_id = #{record.merchantId,jdbcType=CHAR},
+      dealer_full_name = #{record.dealerFullName,jdbcType=CHAR},
+      artisan_leader_id = #{record.artisanLeaderId,jdbcType=CHAR},
+      artisan_id = #{record.artisanId,jdbcType=CHAR},
+      status_id = #{record.statusId,jdbcType=INTEGER},
+      status_begin_time = #{record.statusBeginTime,jdbcType=TIMESTAMP},
+      is_warning = #{record.isWarning,jdbcType=CHAR},
+      pending_process_time = #{record.pendingProcessTime,jdbcType=TIMESTAMP},
+      waiting_grab_processer_id = #{record.waitingGrabProcesserId,jdbcType=CHAR},
+      waiting_grab_processer_name = #{record.waitingGrabProcesserName,jdbcType=VARCHAR},
+      processer_id = #{record.processerId,jdbcType=CHAR},
+      processer_name = #{record.processerName,jdbcType=VARCHAR},
+      markup_number = #{record.markupNumber,jdbcType=INTEGER},
+      markup_interval_minutes = #{record.markupIntervalMinutes,jdbcType=INTEGER},
+      markup_amount = #{record.markupAmount,jdbcType=DECIMAL},
+      created_by_id = #{record.createdById,jdbcType=CHAR},
+      created_account_type_id = #{record.createdAccountTypeId,jdbcType=INTEGER},
+      visibility_id = #{record.visibilityId,jdbcType=INTEGER},
+      process_step_code = #{record.processStepCode,jdbcType=CHAR},
+      per_process_step_process_count = #{record.perProcessStepProcessCount,jdbcType=INTEGER},
+      is_customer_reminder = #{record.isCustomerReminder,jdbcType=CHAR},
+      customer_reminder_time = #{record.customerReminderTime,jdbcType=TIMESTAMP},
+      is_conform_visit_condition = #{record.isConformVisitCondition,jdbcType=CHAR},
+      conform_visit_condition_time = #{record.conformVisitConditionTime,jdbcType=TIMESTAMP},
+      channel = #{record.channel,jdbcType=CHAR},
+      channel_order_number = #{record.channelOrderNumber,jdbcType=CHAR},
+      customer_channel_account = #{record.customerChannelAccount,jdbcType=VARCHAR},
+      final_agree_time_start = #{record.finalAgreeTimeStart,jdbcType=TIME},
+      final_agree_time_end = #{record.finalAgreeTimeEnd,jdbcType=TIME},
+      is_checkout_offline = #{record.isCheckoutOffline,jdbcType=CHAR},
+      reimbursement_artisan_id = #{record.reimbursementArtisanId,jdbcType=CHAR},
+      serve_artisan_phone_number = #{record.serveArtisanPhoneNumber,jdbcType=VARCHAR},
+      is_city_partner_created = #{record.isCityPartnerCreated,jdbcType=CHAR},
+      merchant_type = #{record.merchantType,jdbcType=CHAR},
+      service_provider_id = #{record.serviceProviderId,jdbcType=VARCHAR},
+      service_provider_name = #{record.serviceProviderName,jdbcType=VARCHAR},
+      is_default_service_provider = #{record.isDefaultServiceProvider,jdbcType=CHAR},
+      is_red_packet_used = #{record.isRedPacketUsed,jdbcType=CHAR},
+      is_remote = #{record.isRemote,jdbcType=CHAR},
+      order_tag_str = #{record.orderTagStr,jdbcType=VARCHAR},
+      inner_tag_str = #{record.innerTagStr,jdbcType=VARCHAR},
+      is_team_order = #{record.isTeamOrder,jdbcType=CHAR},
+      is_timeout_order = #{record.isTimeoutOrder,jdbcType=CHAR},
+      is_problem_order = #{record.isProblemOrder,jdbcType=CHAR},
+      is_complaints_order = #{record.isComplaintsOrder,jdbcType=CHAR},
+      is_artisan_extra_charge = #{record.isArtisanExtraCharge,jdbcType=CHAR},
+      is_praise_award_order = #{record.isPraiseAwardOrder,jdbcType=CHAR},
+      customer_praise_award_amount = #{record.customerPraiseAwardAmount,jdbcType=DECIMAL},
+      artisan_praise_award_amount = #{record.artisanPraiseAwardAmount,jdbcType=DECIMAL},
+      customer_praise_award_amount_config = #{record.customerPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      artisan_praise_award_amount_config = #{record.artisanPraiseAwardAmountConfig,jdbcType=DECIMAL},
+      is_extend_warranty_order = #{record.isExtendWarrantyOrder,jdbcType=CHAR},
+      artisan_recommend_award_amount = #{record.artisanRecommendAwardAmount,jdbcType=DECIMAL},
+      artisan_recommend_award_amount_config = #{record.artisanRecommendAwardAmountConfig,jdbcType=DECIMAL},
+      extend_warranty_is_paid = #{record.extendWarrantyIsPaid,jdbcType=CHAR},
+      two_days_extend_warranty_push = #{record.twoDaysExtendWarrantyPush,jdbcType=CHAR},
+      two_days_extend_warranty_push_time = #{record.twoDaysExtendWarrantyPushTime,jdbcType=TIMESTAMP},
+      spare_parts_clearing_type_code = #{record.sparePartsClearingTypeCode,jdbcType=CHAR},
+      unconfirmed_serving_time = #{record.unconfirmedServingTime,jdbcType=VARCHAR},
+      is_product_receiving = #{record.isProductReceiving,jdbcType=VARCHAR},
+      is_system_sing_product_receiving = #{record.isSystemSingProductReceiving,jdbcType=CHAR},
+      is_need_serving = #{record.isNeedServing,jdbcType=VARCHAR},
+      send_order_sms_sign = #{record.sendOrderSmsSign,jdbcType=CHAR},
+      is_check_sign_photo = #{record.isCheckSignPhoto,jdbcType=CHAR},
+      note_picture = #{record.notePicture,jdbcType=VARCHAR},
+      is_proprietary_merchant_created = #{record.isProprietaryMerchantCreated,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

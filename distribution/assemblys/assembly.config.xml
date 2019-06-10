@@ -1,0 +1,84 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2
+          http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+    <id>dandan-${build.number}</id>
+
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>apps</directory>
+            <outputDirectory>/apps</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <moduleSets>
+        <!-- application module set -->
+        <moduleSet>
+            <!-- Enable access to all projects in the current multiple module build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+
+            <includes>
+                <include>com.jiangyun:jiangyun-ops-cache-server</include>
+            </includes>
+
+            <binaries>
+                <outputDirectory>/apps/cache/webapps/ROOT</outputDirectory>
+                <includeDependencies>false</includeDependencies>
+                <unpack>true</unpack>
+            </binaries>
+        </moduleSet>
+
+        <moduleSet>
+            <!-- Enable access to all projects in the current multiple module build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+
+            <includes>
+                <include>com.jiangyun:jiangyun-ops-webapp-service</include>
+            </includes>
+
+            <binaries>
+                <outputDirectory>/apps/service/webapps/ROOT</outputDirectory>
+                <includeDependencies>false</includeDependencies>
+                <unpack>true</unpack>
+            </binaries>
+        </moduleSet>
+
+        <moduleSet>
+            <!-- Enable access to all projects in the current multiple module build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+
+            <includes>
+                <include>com.jiangyun:jiangyun-ops-webapp-app</include>
+            </includes>
+
+            <binaries>
+                <outputDirectory>/apps/app/webapps/ROOT</outputDirectory>
+                <includeDependencies>false</includeDependencies>
+                <unpack>true</unpack>
+            </binaries>
+        </moduleSet>
+
+        <moduleSet>
+            <!-- Enable access to all projects in the current multiple module build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+
+            <includes>
+                <include>com.jiangyun:jiangyun-ops-webapp-admin</include>
+            </includes>
+
+            <binaries>
+                <outputDirectory>/apps/admin/webapps/ROOT</outputDirectory>
+                <includeDependencies>false</includeDependencies>
+                <unpack>true</unpack>
+            </binaries>
+        </moduleSet>
+
+    </moduleSets>
+</assembly>
