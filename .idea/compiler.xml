@@ -6,20 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cache" />
-        <module name="cleanCode" />
-        <module name="common" />
-        <module name="dao" />
-        <module name="mapper" />
+        <module name="webapp" />
+        <module name="dandn-data-dao" />
+        <module name="dandan-test" />
+        <module name="dandan-cleanCode" />
         <module name="model" />
-        <module name="remote" />
+        <module name="dandan-webapp" />
+        <module name="dandan-data-common" />
+        <module name="dandan-mapper" />
+        <module name="cache" />
         <module name="test" />
         <module name="util" />
-        <module name="webapp" />
+        <module name="dandan-data-cache" />
+        <module name="cleanCode" />
+        <module name="dandan-model" />
+        <module name="remote" />
+        <module name="dao" />
+        <module name="mapper" />
+        <module name="common" />
+        <module name="dandan-util" />
+        <module name="dandan-remote" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="dandan-mapper" target="1.5" />
       <module name="dandanmapper" target="1.5" />
       <module name="dandanmodel" target="1.5" />
     </bytecodeTargetLevel>
