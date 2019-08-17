@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="webapp" />
+        <module name="dandan-remote" />
         <module name="dandn-data-dao" />
         <module name="dandan-test" />
         <module name="dandan-cleanCode" />
@@ -21,11 +22,10 @@
         <module name="cleanCode" />
         <module name="dandan-model" />
         <module name="remote" />
-        <module name="dao" />
         <module name="mapper" />
         <module name="common" />
         <module name="dandan-util" />
-        <module name="dandan-remote" />
+        <module name="dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
