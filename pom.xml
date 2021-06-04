@@ -55,7 +55,7 @@
 
         <lombok.version>1.16.20</lombok.version>
         <httpClient.version>3.1</httpClient.version>
-        <httpClient4.version>4.5.6</httpClient4.version>
+        <httpClient4.version>4.5.13</httpClient4.version>
 
         <javax.servlet.version>2.5</javax.servlet.version>
         <javax.servlet.jsp.version>2.1</javax.servlet.jsp.version>
